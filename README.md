@@ -12,7 +12,7 @@ List all packages to be served in file **/server/api/swagger/packages.txt** and 
 At startup the server creates a json representation of the packages listed in file .  
 Such representation contains the tree of files in each package and for each file the functions and classes in it.  
 For each function and class method, the arguments and their default value are recorded.  
-See this file **[/server/struct.json]()** for an example.  
+See this file **[/server/struct.json](server/struct.json)** for an example.  
 
 This information is sent to the clients upon connection.  
 From it a client can construct a "shallow" package that will call the server for any code execution - function, class instance creation, and instance method execution.  

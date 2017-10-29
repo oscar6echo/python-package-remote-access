@@ -5,7 +5,7 @@
 
 Download the folder **/server** from this repo:
 ```bash
-curl https://codeload.github.com/oscar6echo/python-package-remote-access/tar.gz/master | tar -xz --strip=2 python-package-remote-access-master/server
+mkdir client && cd client && curl https://codeload.github.com/oscar6echo/python-package-remote-access/tar.gz/master | tar -xz --strip=2 python-package-remote-access-master/server
 ```
 
 ## 2 - User Guide
@@ -13,8 +13,7 @@ curl https://codeload.github.com/oscar6echo/python-package-remote-access/tar.gz/
 + Copy/paste your Python package(s) folder(s) in this folder **/server** next to **/server/app.py**.  
 + Add the package(s) name(s) to file **/api/swagger/packages.txt**.  
 + Restart the server.  
-+ Then clients can access your package(s) classes and functions, using the corresponding [client package](TBD) (TBD).  
-+ See [this repo](TBD) for more info.  
++ Then clients can access your package(s) classes and functions, using the corresponding [client package](../client).  
 
 ## 1 - Limitations
 

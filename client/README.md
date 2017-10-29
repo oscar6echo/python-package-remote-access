@@ -6,7 +6,7 @@
 ### 1.1 - Manual
 Download the folder **/client** from this repo:
 ```bash
-curl https://codeload.github.com/oscar6echo/python-package-remote-access/tar.gz/master | tar -xz --strip=2 python-package-remote-access-master/client
+mkdir client && cd client && curl https://codeload.github.com/oscar6echo/python-package-remote-access/tar.gz/master | tar -xz --strip=2 python-package-remote-access-master/client
 ```
 
 ### 1.2 - pip

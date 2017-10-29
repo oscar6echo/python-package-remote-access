@@ -64,5 +64,5 @@ Read [here](nameserver/README.md).
 
 ## 5 - Origin
 
-This repo is inspired by this [Python-object-over-API repo](https://github.com/PierreMarion23/Python-object-over-API) and the result of continued interaction with its author.  
+This repo is inspired by this [Python-object-over-API repo](https://github.com/PierreMarion23/Python-object-over-API) and the result of frequent conversations with its author.  
 If you have ideas about how to widen its scope of make its implementation more robust please **do get in touch !**  

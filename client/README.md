@@ -74,7 +74,7 @@ a.polite('Auguste')
 + Get variable value
 
 ```python
-# Exception: to access remote variable add "()"
+# Exception: remote variable are made functions so add ()
 f.TATA()
 ```
 

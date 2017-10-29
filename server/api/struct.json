@@ -1,0 +1,156 @@
+{
+  "sample_package_A": {
+    "__init__": {},
+    "folder_a": {
+      "__init__": {},
+      "file_a1": {
+        "People": {
+          "_type": "class",
+          "methods": {
+            "__init__": {
+              "_type": "method",
+              "args": [
+                "name",
+                "age=10",
+                "**kwargs"
+              ],
+              "__doc__": null
+            },
+            "__repr__": {
+              "_type": "method",
+              "args": [],
+              "__doc__": null
+            },
+            "get_name": {
+              "_type": "method",
+              "args": [],
+              "__doc__": "description get_name"
+            }
+          },
+          "__doc__": "\n    docstring for class People\n    "
+        },
+        "bar": {
+          "_type": "func",
+          "args": [
+            "abc"
+          ],
+          "__doc__": null
+        },
+        "baz": {
+          "_type": "func",
+          "args": [
+            "y",
+            "zzz=2"
+          ],
+          "__doc__": "description function file_a1/bar"
+        },
+        "foo": {
+          "_type": "func",
+          "args": [
+            "x"
+          ],
+          "__doc__": "description function file_a1/foo"
+        },
+        "DEFAULT_NAME": {
+          "_type": "var",
+          "value": "bernard"
+        },
+        "EXCLUDED_VARIABLE": {
+          "_type": "var",
+          "value": [
+            "TOTOAB"
+          ]
+        },
+        "TATA": {
+          "_type": "var",
+          "value": 421
+        },
+        "TITI": {
+          "_type": "var",
+          "value": [
+            "a",
+            "sample",
+            "list"
+          ]
+        }
+      },
+      "subfolder_z": {
+        "__init__": {},
+        "file_z1": {
+          "bar": {
+            "_type": "func",
+            "args": [
+              "abc"
+            ],
+            "__doc__": null
+          }
+        }
+      }
+    }
+  },
+  "sample_package_B": {
+    "__init__": {},
+    "file1": {
+      "Hallo": {
+        "_type": "class",
+        "methods": {
+          "__init__": {
+            "_type": "method",
+            "args": [
+              "name"
+            ],
+            "__doc__": null
+          },
+          "__repr__": {
+            "_type": "method",
+            "args": [],
+            "__doc__": null
+          },
+          "polite": {
+            "_type": "method",
+            "args": [
+              "name",
+              "n=3",
+              "**kwargs"
+            ],
+            "__doc__": "\n        description method polite\n        "
+          },
+          "test": {
+            "_type": "method",
+            "args": [],
+            "__doc__": "\n        description method test\n        "
+          }
+        },
+        "__doc__": "\n    description class Hallo\n    "
+      },
+      "bonjour": {
+        "_type": "func",
+        "args": [
+          "x"
+        ],
+        "__doc__": "\n    description function bonjour\n    "
+      },
+      "hello": {
+        "_type": "func",
+        "args": [
+          "y",
+          "x",
+          "z=1",
+          "**kwargs"
+        ],
+        "__doc__": "\n    description function hello\n    "
+      }
+    },
+    "file2": {
+      "goodbye": {
+        "_type": "func",
+        "args": [
+          "x",
+          "y",
+          "z"
+        ],
+        "__doc__": null
+      }
+    }
+  }
+}

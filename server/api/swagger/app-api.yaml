@@ -1,0 +1,128 @@
+swagger: "2.0"
+
+info:
+  title: "Python Package Remote Access"
+  version: "1.0"
+  description: |
+    # User guide
+    + Copy/paste your Python package(s) folder(s) in this folder `server` next to `app.py`.  
+    + Add the package(s) name(s) to file `api/swagger/packages.txt`.  
+    + Restart the server.  
+    + Then clients can access your package(s) classes and functions, using the corresponding [client package](TBD).  
+    + See [this repo](TBD) for more info.  
+
+    # Limitations
+    Classes and functions in your package(s) **must return pickle-able** objects.  
+    Essentially these are all Python objects but user defined objects or functions.  
+    Example of supported formats:
+    + Python types (`int`, `float`, `str`, `list`, `tuple`, `dict`, `datetime`)
+    + numpy (`ndarray`)
+    + pandas (`Timestamp`, `DataFrame`, `Series`)
+
+    Also note that **local print() is not visible** from remote. Only returned values are.
+
+    # Endpoints
+    + `/info` returns the structure of the package(s) served.
+    + `/exec` is the action endpoint used by the client to:
+      + launch a remote function
+      + instantiate a remote class
+      + launch a remote method
+
+basePath: /v1.0
+
+paths:
+  /info:
+    get:
+      operationId: api.info.get
+      responses:
+        '201':
+          description: 'Fetch struct.json'
+          schema:
+            type: object
+            properties:
+              _module_name:
+                type: string
+            required:
+            - _module_name
+  /exec:
+    post:
+      description: 'send data to exec'
+      operationId: api.exec.post
+      parameters:
+        - in: body
+          name: request_data
+          required: true
+          schema:
+            $ref: '#/definitions/BinaryData2'
+      consumes:
+        - application/octet-stream
+      produces:
+        - application/octet-stream
+      responses:
+        '200':
+          description: 'variable value'
+          schema: 
+            $ref: '#/definitions/BinaryData2'
+        '201':
+          description: 'function result'
+          schema: 
+            $ref: '#/definitions/BinaryData2'
+        '202':
+          description: 'class instance creation'
+          schema: 
+            $ref: '#/definitions/BinaryData2'
+        '203':
+          description: 'existing instance method result'
+          schema: 
+            $ref: '#/definitions/BinaryData2'
+        '461':
+          description: 'invalid payload: error unpickling'
+          schema:
+            $ref: '#/definitions/ErrorMsg'
+        '462':
+          description: 'wrong params: must have function_name xor (class_name and method_name)'
+          schema:
+            $ref: '#/definitions/ErrorMsg'
+        '463':
+          description: 'error importing module'
+          schema:
+            $ref: '#/definitions/ErrorMsg'
+        '464':
+          description: 'error getting function'
+          schema:
+            $ref: '#/definitions/ErrorMsg'
+        '465':
+          description: 'error getting class'
+          schema:
+            $ref: '#/definitions/ErrorMsg'
+        '466':
+          description: 'error instantiating class'
+          schema:
+            $ref: '#/definitions/ErrorMsg'
+        '467':
+          description: 'error getting method'
+          schema:
+            $ref: '#/definitions/ErrorMsg'
+        '468':
+          description: 'error executing method'
+          schema:
+            $ref: '#/definitions/ErrorMsg'
+
+
+definitions:
+  BinaryData:
+    type: object
+    properties:
+      pickle_format:
+        type: integer
+      binary_data:
+        type: string
+        format: byte
+        description: Pickled Python object
+  BinaryData2:
+    type: string
+    format: binary
+    description: Pickled Python object
+        
+  ErrorMsg:
+    type: string

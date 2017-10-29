@@ -1,0 +1,27 @@
+swagger: "2.0"
+
+info:
+  title: "Python Package Remote Access - Nameserver"
+  version: "1.0"
+  description: |
+    # User guide
+    + Write all servers info in file `api/swagger/servers.txt`.  
+      On each line "[name of server], [ip address], [port], [version]"  
+      For example "myserver,  localhost, 9090, v1.0"
+    + Restart the server
+
+    # Endpoints
+    + `/info` returns a dictionary of servers  
+      For example {'myserver': {'ip': 'localhost', 'port': '9090', 'version': 'v1.0'}}
+
+basePath: /v1.0
+
+paths:
+  /info:
+    get:
+      operationId: api.info.get
+      responses:
+        '200':
+          description: 'Fetch all servers (ip, port, version) from name'
+          schema:
+            type: object

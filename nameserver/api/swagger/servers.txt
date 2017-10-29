@@ -1,0 +1,2 @@
+myserver,  localhost, 9090, v1.0
+myserver2, localhost, 9091, v1.0  

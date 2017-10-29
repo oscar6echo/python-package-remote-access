@@ -82,5 +82,5 @@ f.TATA()
 ## 3 - Notebooks
 
 For more info read and compare the demo
-+ [local_access notebook](../server/local_access.ipynb)
-+ [remote_access notebook](../remote_access.ipynb)
++ [local-access notebook](../server/local-access.ipynb)
++ [remote-access notebook](../remote-access.ipynb)

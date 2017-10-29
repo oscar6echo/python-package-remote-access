@@ -5,7 +5,7 @@
 
 Download the folder **/nameserver** from this repo:
 ```bash
-curl https://codeload.github.com/oscar6echo/python-package-remote-access/tar.gz/master | tar -xz --strip=2 python-package-remote-access-master/nameserver
+mkdir client && cd client && curl https://codeload.github.com/oscar6echo/python-package-remote-access/tar.gz/master | tar -xz --strip=2 python-package-remote-access-master/nameserver
 ```
 ## 2 - User Guide
 

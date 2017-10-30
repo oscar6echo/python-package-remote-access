@@ -20,6 +20,7 @@ class Builder:
         """
         self.dic_struct = dic_struct
         self.url_exec = url_exec
+        self.li_module = None
 
     def build_remote_package(self):
         """
@@ -51,15 +52,19 @@ class Builder:
                             variable_name = k
                             self2.__dict__[k] = self.build_remote_variable(module_name,
                                                                            variable_name)
+                        self.li_module.append((module_name, self2))
                     else:
                         path2 = path[:] + [k]
                         self2.__dict__[k] = RemotePackage(v,
                                                           path=path2)
+                        if path:
+                            self.li_module.append((module_name, self2))
 
             def __repr__(self):
                 return str(self.__dict__)
 
-        return RemotePackage(self.dic_struct)
+        self.li_module = []
+        self.remote_package = RemotePackage(self.dic_struct)
 
     def build_remote_variable(self,
                               module_name,

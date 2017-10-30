@@ -53,25 +53,23 @@
         },
         "DEFAULT_NAME": {
           "_type": "var",
-          "value": "bernard"
+          "args": []
         },
         "EXCLUDED_VARIABLE": {
           "_type": "var",
-          "value": [
-            "TOTOAB"
-          ]
+          "args": []
         },
         "TATA": {
           "_type": "var",
-          "value": 421
+          "args": []
         },
         "TITI": {
           "_type": "var",
-          "value": [
-            "a",
-            "sample",
-            "list"
-          ]
+          "args": []
+        },
+        "ps": {
+          "_type": "var",
+          "args": []
         }
       },
       "subfolder_z": {

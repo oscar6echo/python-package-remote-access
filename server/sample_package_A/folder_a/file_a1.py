@@ -1,4 +1,7 @@
 
+
+import pandas as pd
+
 from .subfolder_z.file_z1 import bar
 
 DEFAULT_NAME = 'bernard'
@@ -6,6 +9,7 @@ DEFAULT_NAME = 'bernard'
 TITI = ['a', 'sample', 'list']
 TOTOAB = 'toto'
 TATA = 421
+ps = pd.Series([2*i for i in range(10)])
 
 EXCLUDED_VARIABLE = ['TOTOAB']
 

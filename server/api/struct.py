@@ -70,9 +70,6 @@ def build_dic_file(file):
         variables, functions and classes
 
     :param module file: module (result from importlib.import_module)
-    :param list EXCLUDED_CLASS: names (str) of classes to ignore
-    :param list EXCLUDED_FUNCTION: names (str) of functions to ignore
-    :param list EXCLUDED_VARIABLE: names (str) of variables to ignore
 
     :return: dict describing the module file
     '''
@@ -142,7 +139,8 @@ def build_dic_file(file):
                                '__doc__': func.__doc__}
 
     for name, value in li_var.items():
-        dic_file[name] = {'_type': 'var',
-                          'args': []}
+        if not name.startswith('EXCLUDED_'):
+            dic_file[name] = {'_type': 'var',
+                            'args': []}
 
     return dic_file

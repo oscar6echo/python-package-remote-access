@@ -22,6 +22,7 @@ pip install remote-access-client
 ```python
 # manual
 import client as prc
+
 # pip
 import package_remote_access.client as prc
 ```

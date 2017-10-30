@@ -48,8 +48,13 @@ rc.struct
 + Get a handle of the remote packages
 
 ```python
-handle = rc.build_remote_package()
+handle = rc.build_remote_package(update_sys_modules=True,
+                                 verbose=True)
 ```
+
+If `update_sys_modules=True` is set all packages are added to sys.modules.  
+The you may import the packages as if they were local.  
+Set `verbose=True` to see the modifications to sys.modules.
 
 From there work as usual
 
@@ -58,23 +63,36 @@ From there work as usual
 ```python
 m = handle.sample_package_B.file1
 m.hello(1, 2, 3, **{'abc': 'azerty'})
+
+# or
+
+from sample_package_B.file1 import hello
+hello(1, 2, 3, **{'abc': 'azerty'})
 ```
+
 + Instantiate class
 
 ```python
-m = handle.sample_package_B.file1
-m.hello(1, 2, 3, **{'abc': 'azerty'})
+m = handle.sample_package_A.folder_a.file_a1
+kwargs = {'other': 'owns car'}
+p = m.People(name='titi2', **kwargs)
+
+# or
+
+from sample_package_A.folder_a.file_a1 import People
+kwargs = {'other': 'owns car'}
+p = People(name='titi2', **kwargs)
 ```
 
 + Execute instance method
 
 ```python
-a.polite('Auguste')
+p.polite('Auguste')
 ```
 + Get variable value
 
 ```python
-# Exception: remote variable are made functions so add ()
+# EXCEPTION: remote variable are made functions so add ()
 f.TATA()
 ```
 

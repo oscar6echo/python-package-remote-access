@@ -24,7 +24,8 @@ Example of supported formats:
 + numpy (ndarray)
 + pandas (Timestamp, DataFrame, Series)
 
-Also note that **local print() is not visible** from remote. Only returned values are.
+A minor point: Remote variables are turned into function - as they may change as a result of remote class methods or functions.  
+Also note that **local print() is not visible** from remote. Only returned values are.  
 
 ## 4 - Endpoints
 

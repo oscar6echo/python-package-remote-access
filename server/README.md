@@ -12,7 +12,7 @@ mkdir client && cd client && curl https://codeload.github.com/oscar6echo/python-
 
 + Copy/paste your Python package(s) folder(s) in this folder **/server** next to **/server/app.py**.  
 + Add the package(s) name(s) to file **/api/swagger/packages.txt**.  
-+ To keep some variables, functions, classes private use EXCLUDED_VARIABLES/FUNCTIONS/CLASSES keywords in the relevant file. See [example](sample_package_A/folder_a/file_a1.py)
++ To keep some variables, functions, classes private use EXCLUDED_VARIABLES/FUNCTIONS/CLASSES keywords in the relevant file. See [example](sample_package_A/folder_a/file_a1.py).
 + Restart the server.  
 + Then clients can access your package(s) classes and functions, using the corresponding [client package](../client).  
 

@@ -48,7 +48,7 @@ def build_struct(package_name):
     for path in li_path:
         dic = dic_tree
         cur_path = []
-        split_path = path.split('/')
+        split_path = path.split(os.path.sep)
         for e in split_path[:-1]:
             if e not in dic:
                 dic[e] = {}
@@ -77,8 +77,8 @@ def build_dic_file(file):
     :return: dict describing the module file
     '''
 
-    def is_builtin(name):
-        if name.startswith('__') and name.endswith('__'):
+    def is_builtin(name, member):
+        if (name.startswith('__') and name.endswith('__')) or inspect.isbuiltin(member):
             return True
         return False
 
@@ -94,7 +94,7 @@ def build_dic_file(file):
     EXCLUDED_VARIABLE = []
 
     for (name, member) in inspect.getmembers(file):
-        if not is_builtin(name):
+        if not is_builtin(name, member):
             if name == 'EXCLUDED_CLASS':
                 EXCLUDED_CLASS = member
             if name == 'EXCLUDED_FUNCTION':
@@ -103,7 +103,8 @@ def build_dic_file(file):
                 EXCLUDED_VARIABLE = member
 
     for (name, member) in inspect.getmembers(file):
-        if not is_builtin(name):
+        if not is_builtin(name, member):
+            print('>>>', name, member)
             if inspect.isclass(member):
                 if not(name in EXCLUDED_CLASS):
                     li_class[name] = member
@@ -141,6 +142,7 @@ def build_dic_file(file):
                                '__doc__': func.__doc__}
 
     for name, value in li_var.items():
-        dic_file[name] = {'_type': 'var', 'value': value}
+        dic_file[name] = {'_type': 'var',
+                          'args': []}
 
     return dic_file

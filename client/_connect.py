@@ -1,4 +1,5 @@
 
+import sys
 import requests as rq
 
 from ._builder import Builder
@@ -64,7 +65,9 @@ class Connect:
                 d['ip'], d['port'], d['version'])
             return url_server
 
-    def build_remote_package(self):
+    def build_remote_package(self,
+                             update_sys_modules=False,
+                             verbose=False):
         """
         TBD
         """
@@ -75,5 +78,18 @@ class Connect:
         b = Builder(self.struct,
                     self.url_exec)
         global_dic_store['builder'] = b
-        remote_package = b.build_remote_package()
-        return remote_package
+
+        b.build_remote_package()
+        
+        if update_sys_modules:
+        
+            for name, obj in b.li_module:
+                sys.modules[name] = obj
+        
+            if verbose:
+                print('The remote modules were added to sys.modules')
+                for name, obj in b.li_module:
+                    print('\t{}'.format(name))
+                print('You can import them as if they were local modules')
+
+        return b.remote_package

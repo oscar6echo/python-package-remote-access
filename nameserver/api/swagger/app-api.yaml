@@ -20,6 +20,9 @@ paths:
   /info:
     get:
       operationId: api.info.get
+      description: 'request all servers ip/port/version'
+      tags:
+        - Invariant Endpoints
       responses:
         '200':
           description: 'Fetch all servers (ip, port, version) from name'

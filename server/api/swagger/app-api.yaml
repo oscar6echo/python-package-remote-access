@@ -7,9 +7,10 @@ info:
     # User guide
     + Copy/paste your Python package(s) folder(s) in this folder `server` next to `app.py`.  
     + Add the package(s) name(s) to file `api/swagger/packages.txt`.  
+    + To keep some variables/functions/classes private use EXCLUDED_VARIABLES/FUNCTIONS/CLASSES keywords in the current file.
     + Restart the server.  
-    + Then clients can access your package(s) classes and functions, using the corresponding [client package](TBD).  
-    + See [this repo](TBD) for more info.  
+    + Then clients can access your package(s) classes and functions, using the corresponding [client package](https://github.com/oscar6echo/python-package-remote-access/tree/master/client).  
+    + See [the repo python-package-remote-access](https://github.com/oscar6echo/python-package-remote-access) for more info.  
 
     # Limitations
     Classes and functions in your package(s) **must return pickle-able** objects.  
@@ -19,7 +20,8 @@ info:
     + numpy (`ndarray`)
     + pandas (`Timestamp`, `DataFrame`, `Series`)
 
-    Also note that **local print() is not visible** from remote. Only returned values are.
+    A minor point: Remote variables are turned into function - as they may change as a result of remote class methods or functions.  
+    Also note that **local print() is not visible** from remote. Only returned values are.  
 
     # Endpoints
     + `/info` returns the structure of the package(s) served.
@@ -34,7 +36,10 @@ paths:
   /info:
     get:
       operationId: api.info.get
-      responses:
+      description: 'request remote package(s) structure'
+      tags:
+      - Invariant Endpoints
+     responses:
         '201':
           description: 'Fetch struct.json'
           schema:
@@ -46,8 +51,10 @@ paths:
             - _module_name
   /exec:
     post:
-      description: 'send data to exec'
       operationId: api.exec.post
+      description: 'send data for remote execution'
+      tags:
+      - Invariant Endpoints
       parameters:
         - in: body
           name: request_data

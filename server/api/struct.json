@@ -55,10 +55,6 @@
           "_type": "var",
           "args": []
         },
-        "EXCLUDED_VARIABLE": {
-          "_type": "var",
-          "args": []
-        },
         "TATA": {
           "_type": "var",
           "args": []
@@ -140,6 +136,25 @@
       }
     },
     "file2": {
+      "MyClass": {
+        "_type": "class",
+        "methods": {
+          "__init__": {
+            "_type": "method",
+            "args": [
+              "arg1",
+              "zozo"
+            ],
+            "__doc__": null
+          },
+          "the_answer_to_everything": {
+            "_type": "method",
+            "args": [],
+            "__doc__": null
+          }
+        },
+        "__doc__": "\n    This class has attr - they must be captured too - TBD\n    "
+      },
       "goodbye": {
         "_type": "func",
         "args": [

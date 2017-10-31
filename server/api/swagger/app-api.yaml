@@ -10,22 +10,22 @@ info:
     + To keep some variables/functions/classes private use EXCLUDED_VARIABLES/FUNCTIONS/CLASSES keywords in the current file.
     + Restart the server.  
     + Then clients can access your package(s) classes and functions, using the corresponding [client package](https://github.com/oscar6echo/python-package-remote-access/tree/master/client).  
-    + See [the repo python-package-remote-access](https://github.com/oscar6echo/python-package-remote-access) for more info.  
+    + See [python-package-remote-access](https://github.com/oscar6echo/python-package-remote-access) for more info.  
 
     # Limitations
     Classes and functions in your package(s) **must return pickle-able** objects.  
     Essentially these are all Python objects but user defined objects or functions.  
-    Example of supported formats:
-    + Python types (`int`, `float`, `str`, `list`, `tuple`, `dict`, `datetime`)
-    + numpy (`ndarray`)
-    + pandas (`Timestamp`, `DataFrame`, `Series`)
+    Example of supported formats
+    + Python types (int, float, str, list, tuple, dict, datetime)
+    + numpy (ndarray)
+    + pandas (Timestamp, DataFrame, Series)
 
-    A minor point: Remote variables are turned into function - as they may change as a result of remote class methods or functions.  
+    Remote variables are turned into function - as they may change as a result of remote functions/class methods.  
     Also note that **local print() is not visible** from remote. Only returned values are.  
 
     # Endpoints
     + `/info` returns the structure of the package(s) served.
-    + `/exec` is the action endpoint used by the client to:
+    + `/exec` is the action endpoint used by the client to
       + launch a remote function
       + instantiate a remote class
       + launch a remote method
@@ -38,9 +38,9 @@ paths:
       operationId: api.info.get
       description: 'request remote package(s) structure'
       tags:
-      - Invariant Endpoints
-     responses:
-        '201':
+        - Invariant Endpoints
+      responses:
+       '201':
           description: 'Fetch struct.json'
           schema:
             type: object

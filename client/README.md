@@ -10,7 +10,7 @@ mkdir client && cd client && curl https://codeload.github.com/oscar6echo/python-
 ```
 
 ### 1.2 - pip
-Or install via pip (TBD):
+Or install via pip (TBD soon):
 ```bash
 pip install remote-access-client
 ```

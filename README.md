@@ -66,3 +66,8 @@ Read [here](nameserver/README.md).
 
 This repo is inspired by this [Python-object-over-API repo](https://github.com/PierreMarion23/Python-object-over-API) and the result of frequent conversations with its author.  
 If you have ideas about how to widen its scope of make its implementation more robust please **do get in touch !**  
+
+## 6 - Python version
+
+This package is designed for Python 3.  
+Untested on Python 2, which is [going out soon](https://pythonclock.org/) anyway.
